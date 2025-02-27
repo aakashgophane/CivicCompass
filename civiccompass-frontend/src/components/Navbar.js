@@ -30,10 +30,13 @@ const Navbar = () => {
         <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
           <MenuItem onClick={handleMenuClose} component={Link} to="/">Home</MenuItem>
           <MenuItem onClick={handleMenuClose} component={Link} to="/profile">Profile</MenuItem>
+          <MenuItem onClick={handleMenuClose} component={Link} to="/government-info">Government Information</MenuItem>
           <MenuItem onClick={handleMenuClose} component={Link} to="/tracker">Accountability Tracker</MenuItem>
           <MenuItem onClick={handleMenuClose} component={Link} to="/schemes">Scheme Recommender</MenuItem>
           <MenuItem onClick={handleMenuClose} component={Link} to="/chatbot">Chatbot</MenuItem>
           <MenuItem onClick={handleMenuClose} component={Link} to="/about">About</MenuItem>
+          {/* New Menu Item for Government Information */}
+          
         </Menu>
       </Toolbar>
     </AppBar>

@@ -5,7 +5,6 @@ import { Box, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaChevronDown } from "react-icons/fa";
-import FeaturesSection from "./FeaturesSection";
 import "./Home.css";
 import CardSlider from "./CardSlider";
 import "./CardSlider.css";
@@ -64,7 +63,7 @@ const Home = () => {
       </Box>
 
       {/* Features Section */}
-      <FeaturesSection />
+      
       <h1>Our Services</h1>
       <CardSlider />
       // Inside your Home component's return statement, after your FeaturesSection, add:
