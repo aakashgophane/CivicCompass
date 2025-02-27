@@ -13,7 +13,7 @@ exports.registerUser = async (req, res) => {
 
   try {
     // Check if user already exists
-    const [existingUser] = await db.query("SELECT * FROM user_data WHERE email = ?", [email]);
+    const [existingUser] = await db.query("SELECT * FROM users WHERE email = ?", [email]);
     if (existingUser.length > 0) {
       return res.status(400).json({ error: "User already exists" });
     }
@@ -24,7 +24,7 @@ exports.registerUser = async (req, res) => {
 
     // Insert user into database
     await db.query(
-      "INSERT INTO user_data (username, email, password) VALUES (?, ?, ?)",
+      "INSERT INTO users (username, email, password) VALUES (?, ?, ?)",
       [username, email, hashedPassword]
     );
 
@@ -45,7 +45,7 @@ exports.loginUser = async (req, res) => {
 
   try {
     // Check if user exists
-    const [user] = await db.query("SELECT * FROM user_data WHERE email = ?", [email]);
+    const [user] = await db.query("SELECT * FROM users WHERE email = ?", [email]);
     if (user.length === 0) {
       return res.status(401).json({ error: "Invalid credentials" });
     }

@@ -12,7 +12,7 @@ exports.getRecommendations = async (req, res) => {
   
   // Build SQL query dynamically: search the 'scheme' field for any keyword
   const conditions = keywords.map(() => "scheme LIKE ?").join(" OR ");
-  const sql = `SELECT * FROM scheme_data WHERE ${conditions}`;
+  const sql = `SELECT * FROM schemes WHERE ${conditions}`;
   const params = keywords.map(keyword => `%${keyword}%`);
 
   try {

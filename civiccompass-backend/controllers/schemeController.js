@@ -4,7 +4,7 @@ const db = require("../config/db");
 // Controller to fetch all schemes from the scheme_data table
 exports.getAllSchemes = async (req, res) => {
   try {
-    const [rows] = await db.query("SELECT * FROM scheme_data");
+    const [rows] = await db.query("SELECT * FROM schemes");
     res.json(rows);
   } catch (error) {
     console.error("Error fetching schemes:", error);
@@ -19,7 +19,7 @@ exports.searchSchemes = async (req, res) => {
     if (!query) {
       return res.status(400).json({ error: "Query parameter is required" });
     }
-    const [rows] = await db.query("SELECT * FROM scheme_data WHERE scheme LIKE ?", [`%${query}%`]);
+    const [rows] = await db.query("SELECT * FROM schemes WHERE scheme LIKE ?", [`%${query}%`]);
     res.json(rows);
   } catch (error) {
     console.error("Error searching schemes:", error);

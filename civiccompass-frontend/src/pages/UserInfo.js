@@ -1,7 +1,7 @@
-// src/pages/UserInfoPage.js
+// src/pages/UserInfo.js
 import React from "react";
 
-const UserInfoPage = () => {
+const UserInfo = () => {
   return (
     <div>
       <h2>User Information</h2>
@@ -10,4 +10,4 @@ const UserInfoPage = () => {
   );
 };
 
-export default UserInfoPage;
+export default UserInfo;

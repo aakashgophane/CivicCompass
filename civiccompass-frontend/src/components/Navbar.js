@@ -1,11 +1,10 @@
-// src/components/Navbar.js
-import React, { useState } from "react";
-import { AppBar, Toolbar, Typography, Button, Menu, MenuItem } from "@mui/material";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { AppBar, Toolbar, Typography, IconButton, Menu, MenuItem } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu'; // 3-line menu icon
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -16,36 +15,25 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed" sx={{ backgroundColor: '#333' }}>
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography variant="h6" component={Link} to="/" sx={{ flexGrow: 1, textDecoration: 'none', color: 'white' }}>
           CivicCompass
         </Typography>
-        {/* Dropdown Menu Button */}
-        <Button color="inherit" onClick={handleMenuOpen}>
-          Menu
-        </Button>
-        <Menu
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleMenuClose}
-          MenuListProps={{ "aria-labelledby": "menu-button" }}
-        >
-          <MenuItem onClick={handleMenuClose} component={Link} to="/">
-            Gov Info
-          </MenuItem>
-          <MenuItem onClick={handleMenuClose} component={Link} to="/userinfo/1">
-            User Info
-          </MenuItem>
-          <MenuItem onClick={handleMenuClose} component={Link} to="/accountability">
-            Accountability
-          </MenuItem>
-          <MenuItem onClick={handleMenuClose} component={Link} to="/chatbot">
-            Chatbot
-          </MenuItem>
-          <MenuItem onClick={handleMenuClose} component={Link} to="/about">
-            About
-          </MenuItem>
+        
+        {/* Menu Button (3-line icon) */}
+        <IconButton color="inherit" onClick={handleMenuOpen}>
+          <MenuIcon />
+        </IconButton>
+
+        {/* Dropdown Menu */}
+        <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
+          <MenuItem onClick={handleMenuClose} component={Link} to="/">Home</MenuItem>
+          <MenuItem onClick={handleMenuClose} component={Link} to="/profile">Profile</MenuItem>
+          <MenuItem onClick={handleMenuClose} component={Link} to="/tracker">Accountability Tracker</MenuItem>
+          <MenuItem onClick={handleMenuClose} component={Link} to="/schemes">Scheme Recommender</MenuItem>
+          <MenuItem onClick={handleMenuClose} component={Link} to="/chatbot">Chatbot</MenuItem>
+          <MenuItem onClick={handleMenuClose} component={Link} to="/about">About</MenuItem>
         </Menu>
       </Toolbar>
     </AppBar>

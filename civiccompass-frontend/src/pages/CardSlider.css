@@ -1,0 +1,42 @@
+/* CardSlider.css */
+.card-slider-container {
+  max-width: 1000px; /* Adjust as needed */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Card styling */
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 0 10px; /* Space between cards */
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 300px; /* Fixed height for all cards */
+  display: flex !important; /* Ensure cards are flex containers */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Middle card styling */
+.slick-center .card {
+  transform: scale(1.1); /* Make the middle card larger */
+  background: #f0f0f0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Remove unnecessary space on the sides */
+.slick-list {
+  padding: 0 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card {
+    height: 250px; /* Adjust height for smaller screens */
+  }
+}

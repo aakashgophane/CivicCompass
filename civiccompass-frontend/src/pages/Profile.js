@@ -1,16 +1,32 @@
-import React from "react";
-import UserInfo from "../components/UserInfo"; // Import existing component
+// src/pages/Profile.js
+import React, { useEffect, useState } from "react";
 
 const Profile = () => {
-  return (
-    <div className="container mx-auto p-6">
-      <h2 className="text-3xl font-bold text-blue-600">Citizen Information Hub</h2>
-      <p className="mt-4">Find key government details, rights, and laws.</p>
+    const [user, setUser] = useState(null);
 
-      {/* Integrating the old UserInfo Component */}
-      <UserInfo />
-    </div>
-  );
+    useEffect(() => {
+        fetch("http://localhost:5000/api/users/1") // Replace '1' with logged-in user ID
+            .then(response => response.json())
+            .then(data => setUser(data))
+            .catch(error => console.error("Error fetching user data:", error));
+    }, []);
+
+    return (
+        <div>
+            <h1>User Profile</h1>
+            {user ? (
+                <div>
+                    <h2>{user.first_name} {user.last_name}</h2>
+                    <p><strong>Email:</strong> {user.email}</p>
+                    <p><strong>Age:</strong> {user.age}</p>
+                    <p><strong>Occupation:</strong> {user.occupation}</p>
+                    <p><strong>Income:</strong> {user.income}</p>
+                </div>
+            ) : (
+                <p>Loading profile...</p>
+            )}
+        </div>
+    );
 };
 
 export default Profile;
