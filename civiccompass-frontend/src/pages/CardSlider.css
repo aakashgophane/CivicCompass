@@ -1,8 +1,9 @@
 /* CardSlider.css */
 .card-slider-container {
-  max-width: 1000px; /* Adjust as needed */
+  max-width: 100%; /* Take up the entire width of the display */
   margin: 0 auto;
   padding: 20px;
+  overflow: hidden;
 }
 
 /* Card styling */
@@ -14,19 +15,29 @@
   margin: 0 10px; /* Space between cards */
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
   height: 300px; /* Fixed height for all cards */
   display: flex !important; /* Ensure cards are flex containers */
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  opacity: 0.7; /* Make non-center cards slightly transparent */
+  transform: scale(0.8); /* Make non-center cards smaller */
 }
 
 /* Middle card styling */
 .slick-center .card {
-  transform: scale(1.1); /* Make the middle card larger */
+  transform: scale(1.2); /* Make the middle card larger */
+  opacity: 1; /* Make the middle card fully visible */
   background: #f0f0f0;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1; /* Ensure the middle card is on top */
+}
+
+/* Add depth effect */
+.slick-slide:not(.slick-center) {
+  transform: scale(0.8) translateY(20px); /* Move non-center cards down */
+  opacity: 0.7; /* Make non-center cards slightly transparent */
 }
 
 /* Remove unnecessary space on the sides */
