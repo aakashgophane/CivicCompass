@@ -1,53 +1,66 @@
-/* CardSlider.css */
+/* Card Slider Container */
 .card-slider-container {
-  max-width: 100%; /* Take up the entire width of the display */
+  max-width: 100%; /* Full width */
   margin: 0 auto;
   padding: 20px;
   overflow: hidden;
 }
 
-/* Card styling */
+/* Card Styling */
 .card {
   background: #fff;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  margin: 0 10px; /* Space between cards */
+  border-radius: 12px;
+  padding: 25px;
+  margin: 60px 12px; /* Increased spacing */
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
-  height: 300px; /* Fixed height for all cards */
-  display: flex !important; /* Ensure cards are flex containers */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, opacity 0.3s ease-in-out;
+  height: 300px;
+  display: flex !important;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  opacity: 0.7; /* Make non-center cards slightly transparent */
-  transform: scale(0.8); /* Make non-center cards smaller */
+  opacity: 0.6;
+  transform: scale(0.85);
 }
 
-/* Middle card styling */
+/* Center Card Effect */
 .slick-center .card {
-  transform: scale(1.2); /* Make the middle card larger */
-  opacity: 1; /* Make the middle card fully visible */
-  background: #f0f0f0;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1; /* Ensure the middle card is on top */
+  transform: scale(1.15); /* Slightly larger than before */
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px); /* Glass effect */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Add depth effect */
+/* Non-Center Cards */
 .slick-slide:not(.slick-center) {
-  transform: scale(0.8) translateY(20px); /* Move non-center cards down */
-  opacity: 0.7; /* Make non-center cards slightly transparent */
+  transform: scale(0.85) translateY(15px);
+  opacity: 0.6;
 }
 
-/* Remove unnecessary space on the sides */
+/* Hover Effect for Non-Center Cards */
+.card:hover {
+  transform: scale(0.9);
+  opacity: 0.9;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Slick List Adjustments */
 .slick-list {
   padding: 0 !important;
 }
 
-/* Responsive adjustments */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
   .card {
-    height: 250px; /* Adjust height for smaller screens */
+    height: 260px;
+    padding: 20px;
+  }
+  .slick-center .card {
+    transform: scale(1.1);
   }
 }

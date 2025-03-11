@@ -13,7 +13,7 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <Box sx={{ my: 4, px: 2 }}>
+    <Box sx={{ my: 4, px: 5 }}>
       <Typography variant="h4" gutterBottom align="center">
         Explore Our Features
       </Typography>
