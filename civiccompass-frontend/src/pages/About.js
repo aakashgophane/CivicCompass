@@ -12,7 +12,7 @@ const About = () => {
     }, []);
 
     return (
-        <div>
+        <div id="aboutPage">
             <h1>About CivicCompass</h1>
             <p>{aboutData || "Loading about information..."}</p>
         </div>
