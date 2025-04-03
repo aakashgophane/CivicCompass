@@ -32,5 +32,5 @@ function App() {
     </div>
   );
 }
-
+// document.addEventListener('contextmenu', event => event.preventDefault());
 export default App;
